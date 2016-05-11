@@ -4,9 +4,11 @@
   gather_facts: yes
 
   pre_tasks:
+    - name: Yum update
+      yum: name=* state=latest
+
     - name: Ensure Ansible dependencies are installed.
       yum: name=libselinux-python state=installed
 
   roles:
-    - geerlingguy.nfs
     - geerlingguy.packer-rhel
